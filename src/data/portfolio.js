@@ -15,8 +15,8 @@ export const personalInfo = {
   name: "Krishna M",
   title: "Software Engineer",
   description:
-    "A passionate developer who loves turning complex problems into elegant, scalable solutions. With expertise spanning front-end interfaces to back-end architectures, I build digital experiences that are fast, accessible, and delightful to use.",
-  tagline: "Crafting elegant digital experiences with modern web technologies",
+    "Curiosity-driven engineer bridging creative problem-solving and modern AI to craft elegant web experiences.",
+  tagline: "Crafting elegant digital experiences with modern AI web technologies",
   resumeUrl: "/resume.pdf",
   phone: "+91 9363667993",
   email: "krishna.mathiyalaganl@gmail.com",
@@ -27,7 +27,7 @@ export const personalInfo = {
     "Creative Technologist",
   ],
   aboutMe:
-    "I'm an engineer at heart who thrives at the intersection of logic and creativity. With years of experience building production-grade systems, I've developed a deep appreciation for clean architecture, performant code, and user-centric design. Whether it's crafting scalable microservices, training ML models, or designing pixel-perfect interfaces — I bring the same relentless curiosity and craftsmanship to every project. When I'm not coding, you'll find me exploring new technologies, writing technical blogs, or brainstorming the next big idea.",
+    "Software Engineer with a foundation in Electrical & Electronics Engineering, driven by a passion for solving complex technical problems and building scalable, high-performance systems.    My engineering background gives me a deep, systems-level understanding of how technology operates under the hood. I leverage this analytical mindset to engineer clean digital experiences, dissect modern software architecture, and explore practical AI applications to solve real-world problems. Guided by continuous learning and critical thinking, I focus on turning complex challenges into intuitive, value-driven software solutions.",
   quote:
     "First, solve the problem. Then, write the code. — John Johnson",
 };
@@ -43,18 +43,15 @@ export const socialLinks = {
 export const skills = [
   // ── Frontend ──
   { name: "React", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
   { name: "TypeScript", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Framer Motion", category: "Frontend" },
-  { name: "Three.js", category: "Frontend" },
+  { name: "CSS", category: "Frontend" },
+  { name: "HTML", category: "Frontend" },
   // ── Backend ──
-  { name: "Node.js", category: "Backend" },
-  { name: "Express", category: "Backend" },
   { name: "Python", category: "Backend" },
-  { name: "PostgreSQL", category: "Backend" },
-  { name: "MongoDB", category: "Backend" },
-  { name: "GraphQL", category: "Backend" },
+  { name: "MySQL", category: "Backend" },
+  { name: "Java", category: "Backend" },
+  { name: "REST API", category: "Backend" },
+  { name: "Spring Boot", category: "Backend" },
   // ── DevOps & Tools ──
   { name: "Docker", category: "DevOps & Tools" },
   { name: "Git", category: "DevOps & Tools" },
@@ -117,8 +114,6 @@ export const education = [
     degree: "Higher Secondary Education",
     institution: "Pionneer Mills Higher Secondary School",
     year: "2020 – 2021",
-    description:
-      "Graduated with honors. Led the university's open-source development club and participated in multiple hackathons.",
   },
 ];
 
