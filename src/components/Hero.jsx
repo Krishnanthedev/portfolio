@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, ArrowDown, Phone, Mail, MapPin } from "lucide-react";
+import { Download, ArrowDown } from "lucide-react";
 import Scene3D from "./Scene3D";
 import { personalInfo } from "../data/portfolio";
 
@@ -16,8 +16,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section
+    <header
       id="hero"
+      aria-label="Introduction & Hero Section"
       style={{
         position: "relative",
         minHeight: "100vh",
@@ -30,6 +31,7 @@ export default function Hero() {
       {/* Ambient background glows */}
       <div
         className="ambient-glow"
+        aria-hidden="true"
         style={{
           width: "600px",
           height: "600px",
@@ -40,6 +42,7 @@ export default function Hero() {
       />
       <div
         className="ambient-glow"
+        aria-hidden="true"
         style={{
           width: "500px",
           height: "500px",
@@ -49,7 +52,7 @@ export default function Hero() {
         }}
       />
 
-      {/* 3D Scene */}
+      {/* 3D Scene with Deferred Performance Loading & 2D Fallback */}
       <Scene3D />
 
       {/* Content */}
@@ -74,8 +77,8 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.5 }}
             style={{ marginBottom: "1.25rem" }}
           >
-            <span className="opportunities-badge">
-              <span className="pulse-dot" />
+            <span className="opportunities-badge" role="status" aria-label="Available for hire">
+              <span className="pulse-dot" aria-hidden="true" />
               Open to Opportunities
             </span>
           </motion.div>
@@ -98,7 +101,7 @@ export default function Hero() {
             Hello, I&apos;m
           </motion.p>
 
-          {/* Name — Animated Gradient */}
+          {/* Name — Primary SEO Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,6 +128,7 @@ export default function Hero() {
               overflow: "hidden",
               marginBottom: "1.5rem",
             }}
+            aria-live="polite"
           >
             <AnimatePresence mode="wait">
               <motion.h2
@@ -177,44 +181,6 @@ export default function Hero() {
             {personalInfo.tagline}
           </motion.p>
 
-          {/* Contact Details Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.95, duration: 0.5 }}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "1rem",
-              marginBottom: "2.5rem",
-            }}
-          >
-            {[
-              { icon: Phone, text: personalInfo.phone },
-              { icon: Mail, text: personalInfo.email },
-              { icon: MapPin, text: personalInfo.location },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <span
-                  key={item.text}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    color: "var(--text-secondary)",
-                    fontSize: "0.8125rem",
-                    fontFamily: "var(--font-mono)",
-                  }}
-                >
-                  <Icon size={14} style={{ color: "#4facfe" }} />
-                  {item.text}
-                </span>
-              );
-            })}
-          </motion.div>
-
           {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -223,10 +189,11 @@ export default function Hero() {
           >
             <motion.a
               href={personalInfo.resumeUrl}
-              download
+              download="Krishna_M_Resume.pdf"
               className="gradient-btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Download Krishna M's Resume (PDF)"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -239,6 +206,7 @@ export default function Hero() {
               <motion.span
                 animate={{ y: [0, 3, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                aria-hidden="true"
               >
                 <Download size={18} />
               </motion.span>
@@ -258,15 +226,17 @@ export default function Hero() {
             transform: "translateX(-50%)",
           }}
         >
-          <motion.div
+          <motion.a
+            href="#about"
+            aria-label="Scroll down to About section"
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            style={{ color: "var(--text-muted)" }}
+            style={{ color: "var(--text-muted)", display: "inline-block", textDecoration: "none" }}
           >
-            <ArrowDown size={20} />
-          </motion.div>
+            <ArrowDown size={20} aria-hidden="true" />
+          </motion.a>
         </motion.div>
       </div>
-    </section>
+    </header>
   );
 }

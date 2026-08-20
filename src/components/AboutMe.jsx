@@ -13,14 +13,14 @@ const itemVariants = {
 };
 
 const stats = [
-  { icon: Briefcase, value: "10+", label: "Projects" },
+  { icon: Briefcase, value: "10+", label: "Projects Completed" },
   { icon: Coffee, value: "∞", label: "Cups of Coffee" },
-  { icon: Lightbulb, value: "5+", label: "Tech Stacks" },
+  { icon: Lightbulb, value: "5+", label: "Years Experience" },
 ];
 
 export default function AboutMe() {
   return (
-    <SectionWrapper id="about">
+    <SectionWrapper id="about" aria-label="About Me & Background">
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
         <motion.p
@@ -59,8 +59,8 @@ export default function AboutMe() {
           alignItems: "start",
         }}
       >
-        {/* About Text */}
-        <motion.div
+        {/* About Text Article */}
+        <motion.article
           variants={itemVariants}
           className="glass-card"
           style={{ padding: "2.5rem" }}
@@ -84,6 +84,7 @@ export default function AboutMe() {
                 justifyContent: "center",
                 color: "#00f2fe",
               }}
+              aria-hidden="true"
             >
               <User size={20} />
             </div>
@@ -106,11 +107,13 @@ export default function AboutMe() {
           >
             {personalInfo.aboutMe}
           </p>
-        </motion.div>
+        </motion.article>
 
         {/* Stats Row */}
         <motion.div
           variants={itemVariants}
+          role="region"
+          aria-label="Professional Statistics"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
@@ -135,6 +138,7 @@ export default function AboutMe() {
                     display: "flex",
                     justifyContent: "center",
                   }}
+                  aria-hidden="true"
                 >
                   <Icon size={22} />
                 </div>

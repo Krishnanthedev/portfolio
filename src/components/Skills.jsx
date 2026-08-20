@@ -27,7 +27,7 @@ const groupedSkills = skills.reduce((acc, skill) => {
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills">
+    <SectionWrapper id="skills" aria-label="Technical Skills & Technologies">
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
         <motion.p
@@ -53,14 +53,14 @@ export default function Skills() {
             letterSpacing: "-0.02em",
           }}
         >
-          Skills & Technologies
+          Skills &amp; Technologies
         </motion.h2>
       </div>
 
       {/* Skill Categories */}
       <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
         {Object.entries(groupedSkills).map(([category, categorySkills]) => (
-          <motion.div key={category} variants={cardVariants}>
+          <motion.section key={category} variants={cardVariants} aria-label={`${category} Skills`}>
             {/* Category Label */}
             <div
               style={{
@@ -70,7 +70,7 @@ export default function Skills() {
                 marginBottom: "1.25rem",
               }}
             >
-              <span style={{ fontSize: "1.25rem" }}>
+              <span style={{ fontSize: "1.25rem" }} aria-hidden="true">
                 {categoryIcons[category] || "📦"}
               </span>
               <h3
@@ -89,19 +89,23 @@ export default function Skills() {
                   background:
                     "linear-gradient(90deg, var(--border-subtle), transparent)",
                 }}
+                aria-hidden="true"
               />
             </div>
 
             {/* Skill Cards Grid */}
-            <div
+            <ul
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
                 gap: "0.75rem",
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
               }}
             >
               {categorySkills.map((skill) => (
-                <motion.div
+                <motion.li
                   key={skill.name}
                   className="glass-card"
                   variants={cardVariants}
@@ -126,10 +130,10 @@ export default function Skills() {
                   >
                     {skill.name}
                   </span>
-                </motion.div>
+                </motion.li>
               ))}
-            </div>
-          </motion.div>
+            </ul>
+          </motion.section>
         ))}
       </div>
     </SectionWrapper>

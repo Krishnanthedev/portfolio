@@ -1,17 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
+    <!-- Character Set & Viewport -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shree Krishna — Full Stack Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Shree Krishna — Full Stack Developer specializing in React, Node.js, and modern web technologies. View projects, skills, and get in touch." />
-    <meta property="og:title" content="Shree Krishna — Full Stack Developer" />
-    <meta property="og:description" content="Crafting elegant digital experiences with modern web technologies." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Title & Standard SEO Metadata -->
+    <title>Krishna M | Full-Stack Developer &amp; AI Engineer</title>
+    <meta
+      name="title"
+      content="Krishna M | Full-Stack Developer &amp; AI Engineer"
+    />
+    <meta
+      name="description"
+      content="Portfolio of Krishna M — Full-Stack Developer and AI Engineer specializing in React, Node.js, Next.js, Three.js, and scalable cloud architectures. Discover featured projects, technical skills, and production systems."
+    />
+    <meta
+      name="keywords"
+      content="Krishna M, Full-Stack Developer, AI Engineer, React Developer, Node.js Developer, Three.js Portfolio, Next.js Developer, Frontend Specialist, Backend Architect, Software Engineer Portfolio, Cloud Architecture, Distributed Systems"
+    />
+    <meta name="author" content="Krishna M" />
+    <meta name="creator" content="Krishna M" />
+    <meta name="publisher" content="Krishna M" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://krishnam.dev/" />
+
+    <!-- Theme & Color Scheme Directives -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+
+    <!-- Mobile & PWA Web App Meta Tags -->
+    <meta name="application-name" content="Krishna M Portfolio" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Krishna M" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicons & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph (OG) / Social Sharing Metadata -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Krishna M Portfolio" />
+    <meta property="og:title" content="Krishna M | Full-Stack Developer &amp; AI Engineer" />
+    <meta
+      property="og:description"
+      content="Full-Stack Developer and AI Engineer specializing in React, Node.js, Next.js, Three.js, and scalable cloud architectures. View projects and technical expertise."
+    />
+    <meta property="og:url" content="https://krishnam.dev/" />
+    <meta property="og:image" content="https://krishnam.dev/og-preview.png" />
+    <meta property="og:image:secure_url" content="https://krishnam.dev/og-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Krishna M — Full-Stack Developer &amp; AI Engineer Portfolio Preview" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@krishna" />
+    <meta name="twitter:creator" content="@krishna" />
+    <meta name="twitter:title" content="Krishna M | Full-Stack Developer &amp; AI Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-Stack Developer and AI Engineer specializing in React, Node.js, Next.js, Three.js, and scalable cloud architectures. View projects and technical expertise."
+    />
+    <meta name="twitter:image" content="https://krishnam.dev/og-preview.png" />
+    <meta name="twitter:image:alt" content="Krishna M — Full-Stack Developer &amp; AI Engineer Portfolio Preview" />
+
+    <!-- Typography & Font Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD Rich Structured Data Graph -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://krishnam.dev/#person",
+            "name": "Krishna M",
+            "givenName": "Krishna",
+            "familyName": "M",
+            "jobTitle": "Full-Stack Developer & AI Engineer",
+            "description": "Full-Stack Developer and AI Engineer specializing in React, Node.js, Next.js, Three.js, and scalable distributed architectures.",
+            "url": "https://krishnam.dev/",
+            "image": "https://krishnam.dev/og-preview.png",
+            "email": "mailto:krishna@example.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://github.com",
+              "https://linkedin.com",
+              "https://x.com",
+              "https://leetcode.com",
+              "https://medium.com"
+            ],
+            "knowsAbout": [
+              "Full-Stack Web Development",
+              "React",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Node.js",
+              "Express",
+              "Python",
+              "Three.js",
+              "WebGL",
+              "PostgreSQL",
+              "MongoDB",
+              "GraphQL",
+              "Docker",
+              "Amazon Web Services (AWS)",
+              "CI/CD Pipelines",
+              "Artificial Intelligence",
+              "Large Language Models",
+              "Core Web Vitals Optimization"
+            ],
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "Stanford University",
+                "department": "Computer Science"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "Indian Institute of Technology",
+                "department": "Information Technology"
+              }
+            ],
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "AWS Solutions Architect – Associate",
+                "credentialCategory": "degree",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Amazon Web Services"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Google Professional Cloud Developer",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Google Cloud"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Meta Front-End Developer Professional Certificate",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Meta"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "name": "MongoDB Associate Developer",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "MongoDB University"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://krishnam.dev/#website",
+            "url": "https://krishnam.dev/",
+            "name": "Krishna M — Portfolio",
+            "description": "Portfolio of Krishna M — Full-Stack Developer and AI Engineer.",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://krishnam.dev/#person"
+            },
+            "author": {
+              "@id": "https://krishnam.dev/#person"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://krishnam.dev/#webpage",
+            "url": "https://krishnam.dev/",
+            "name": "Krishna M | Full-Stack Developer & AI Engineer",
+            "isPartOf": {
+              "@id": "https://krishnam.dev/#website"
+            },
+            "about": {
+              "@id": "https://krishnam.dev/#person"
+            },
+            "mainEntity": {
+              "@id": "https://krishnam.dev/#person"
+            }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://krishnam.dev/#projects",
+            "name": "Featured Software & Engineering Projects",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareSourceCode",
+                  "name": "CloudSync Dashboard",
+                  "description": "A real-time cloud infrastructure monitoring dashboard with interactive charts, alert management, and multi-tenant support.",
+                  "programmingLanguage": ["JavaScript", "TypeScript", "React", "Node.js", "SQL"],
+                  "codeRepository": "https://github.com"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareSourceCode",
+                  "name": "AI Content Studio",
+                  "description": "An AI-powered content generation platform with a rich text editor, GPT integration, SEO analysis, and team collaboration features.",
+                  "programmingLanguage": ["TypeScript", "Next.js", "Python", "Tailwind CSS"],
+                  "codeRepository": "https://github.com"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareSourceCode",
+                  "name": "DevFlow",
+                  "description": "A developer productivity suite featuring code snippet management, project time tracking, and GitHub integration with analytics.",
+                  "programmingLanguage": ["TypeScript", "React", "Express", "MongoDB"],
+                  "codeRepository": "https://github.com"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareSourceCode",
+                  "name": "EcoTrack Mobile",
+                  "description": "A cross-platform mobile app for carbon footprint tracking with gamification, social challenges, and environmental impact reports.",
+                  "programmingLanguage": ["JavaScript", "React Native", "Firebase"],
+                  "codeRepository": "https://github.com"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

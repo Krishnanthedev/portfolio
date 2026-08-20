@@ -1,14 +1,16 @@
 import { personalInfo } from "../data/portfolio";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" role="contentinfo" aria-label="Site Footer">
       <div className="footer-inner">
-        <p className="footer-quote">
+        <blockquote className="footer-quote">
           &ldquo;{personalInfo.quote}&rdquo;
-        </p>
+        </blockquote>
         <p className="footer-copyright">
-          &copy; 2026 Krishna. All rights reserved.
+          &copy; {currentYear} {personalInfo.name}. All rights reserved.
         </p>
       </div>
     </footer>

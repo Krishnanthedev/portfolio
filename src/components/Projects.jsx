@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
@@ -16,6 +17,7 @@ function GithubIcon({ size = 24, ...props }) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
       {...props}
     >
       <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -34,8 +36,10 @@ const cardVariants = {
 };
 
 export default function Projects() {
+  const [hoveredIdx, setHoveredIdx] = useState(null);
+
   return (
-    <SectionWrapper id="projects">
+    <SectionWrapper id="projects" aria-label="Featured Projects Section">
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
         <motion.p
@@ -61,143 +65,110 @@ export default function Projects() {
             letterSpacing: "-0.02em",
           }}
         >
-          Projects
+          My Projects
         </motion.h2>
       </div>
 
-      {/* Projects Grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
-          gap: "1.5rem",
-        }}
-      >
-        {projects.map((project, i) => (
-          <motion.div
-            key={project.title}
-            className="glass-card"
-            variants={cardVariants}
-            whileHover={{
-              borderColor: "rgba(255, 117, 140, 0.3)",
-              boxShadow: "0 0 35px rgba(255, 117, 140, 0.06), 0 8px 32px rgba(0,0,0,0.3)",
-              y: -4,
-            }}
-            style={{
-              padding: "1.75rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            }}
-          >
-            {/* Project number accent */}
-            <div
+      {/* Projects Grid with Semantic Article Cards */}
+      <div className="projects-grid">
+        {projects.map((project, i) => {
+          const isHovered = hoveredIdx === i;
+          return (
+            <motion.article
+              key={project.id || project.title}
+              className="glass-card project-card"
+              variants={cardVariants}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
+              whileHover={{
+                borderColor: "rgba(255, 117, 140, 0.35)",
+                boxShadow:
+                  "0 0 40px rgba(255, 117, 140, 0.08), 0 20px 50px rgba(0,0,0,0.4)",
+                y: -8,
+              }}
               style={{
+                padding: 0,
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+                flexDirection: "column",
+                overflow: "hidden",
+                cursor: "default",
               }}
             >
-              <span
-                className="gradient-text-coral"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.8125rem",
-                  fontWeight: 600,
-                }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--text-muted)", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#f1f5f9")}
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--text-muted)")
-                }
-                aria-label={`${project.title} GitHub repository`}
-              >
-                <GithubIcon size={18} />
-              </a>
-            </div>
+              {/* ── Image Thumbnail with CLS Prevention & Lazy Loading ── */}
+              <div className="project-card-image-wrapper">
+                <motion.img
+                  src={project.image}
+                  alt={project.imageAlt || `${project.title} project screenshot and user interface`}
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="340"
+                  className="project-card-image"
+                  animate={{
+                    scale: isHovered ? 1.06 : 1,
+                  }}
+                  transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+                />
+                {/* Gradient overlay at bottom of image for smooth transition */}
+                <div className="project-card-image-overlay" aria-hidden="true" />
 
-            {/* Title */}
-            <h3
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-              }}
-            >
-              {project.title}
-            </h3>
-
-            {/* Description */}
-            <p
-              style={{
-                color: "var(--text-secondary)",
-                fontSize: "0.9375rem",
-                lineHeight: 1.7,
-                flex: 1,
-              }}
-            >
-              {project.description}
-            </p>
-
-            {/* Tags */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.5rem",
-              }}
-            >
-              {project.tags.map((tag) => (
-                <span key={tag} className="tag-pill">
-                  {tag}
+                {/* Floating project number badge */}
+                <span className="project-card-number" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-              ))}
-            </div>
+              </div>
 
-            {/* Live Demo Button */}
-            <motion.a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
-                padding: "0.625rem 1.25rem",
-                borderRadius: "0.625rem",
-                border: "1px solid rgba(255, 117, 140, 0.2)",
-                background: "rgba(255, 117, 140, 0.06)",
-                color: "#ff758c",
-                fontSize: "0.875rem",
-                fontWeight: 600,
-                textDecoration: "none",
-                transition: "all 0.2s ease",
-                marginTop: "0.5rem",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255, 117, 140, 0.12)";
-                e.currentTarget.style.borderColor = "rgba(255, 117, 140, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 117, 140, 0.06)";
-                e.currentTarget.style.borderColor = "rgba(255, 117, 140, 0.2)";
-              }}
-            >
-              <span>Live Demo</span>
-              <ExternalLink size={15} />
-            </motion.a>
-          </motion.div>
-        ))}
+              {/* ── Details Area ── */}
+              <div className="project-card-body">
+                {/* Title */}
+                <h3 className="project-card-title">{project.title}</h3>
+
+                {/* Description */}
+                <p className="project-card-description">
+                  {project.description}
+                </p>
+
+                {/* Tags / Technologies */}
+                <div className="project-card-tags" aria-label={`Technologies used in ${project.title}`}>
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag-pill">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* ── Action Links ── */}
+                <div className="project-card-actions">
+                  <motion.a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link project-link--demo"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    aria-label={`Open live interactive demo of ${project.title} in a new tab`}
+                  >
+                    <ExternalLink size={15} aria-hidden="true" />
+                    <span>Live Demo</span>
+                  </motion.a>
+
+                  <motion.a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link project-link--repo"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    aria-label={`View GitHub repository for ${project.title} in a new tab`}
+                  >
+                    <GithubIcon size={15} />
+                    <span>GitHub</span>
+                  </motion.a>
+                </div>
+              </div>
+            </motion.article>
+          );
+        })}
       </div>
     </SectionWrapper>
   );

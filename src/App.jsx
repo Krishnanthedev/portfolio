@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import SEO from "./components/SEO";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
@@ -25,6 +26,14 @@ export default function App() {
 
   return (
     <>
+      {/* Dynamic SEO & Schema.org JSON-LD */}
+      <SEO />
+
+      {/* Accessible Skip Link for Keyboard Navigation & Web Standards */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
+
       {/* Splash / Loading Screen */}
       <AnimatePresence>
         {loading && <Loader onComplete={() => setLoading(false)} />}
@@ -39,6 +48,7 @@ export default function App() {
       {/* Ambient background glows */}
       <div
         className="ambient-glow"
+        aria-hidden="true"
         style={{
           width: "400px",
           height: "400px",
@@ -49,6 +59,7 @@ export default function App() {
       />
       <div
         className="ambient-glow"
+        aria-hidden="true"
         style={{
           width: "350px",
           height: "350px",
@@ -59,6 +70,7 @@ export default function App() {
       />
       <div
         className="ambient-glow"
+        aria-hidden="true"
         style={{
           width: "300px",
           height: "300px",
@@ -68,9 +80,9 @@ export default function App() {
         }}
       />
 
-      {/* Page Sections */}
+      {/* Main Landmark & Content Sections */}
       {!loading && (
-        <main>
+        <main id="main-content">
           {!introDone && <IntroSection onDone={handleIntroDone} />}
           <Hero />
           <AboutMe />
@@ -83,7 +95,7 @@ export default function App() {
         </main>
       )}
 
-      {/* Floating Dock Navbar (rendered last for z-index) */}
+      {/* Floating Dock Navbar (rendered last for z-index & semantic landmark) */}
       {!loading && <Navbar />}
     </>
   );

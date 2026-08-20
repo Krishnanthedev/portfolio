@@ -14,7 +14,7 @@ const itemVariants = {
 
 export default function Education() {
   return (
-    <SectionWrapper id="education">
+    <SectionWrapper id="education" aria-label="Academic Background & Education">
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
         <motion.p
@@ -53,12 +53,12 @@ export default function Education() {
         }}
       >
         {/* Timeline Line */}
-        <div className="timeline-line" />
+        <div className="timeline-line" aria-hidden="true" />
 
         {/* Education Items */}
         <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-          {education.map((item, index) => (
-            <motion.div
+          {education.map((item) => (
+            <motion.article
               key={item.degree}
               variants={itemVariants}
               style={{
@@ -67,7 +67,7 @@ export default function Education() {
               }}
             >
               {/* Timeline Dot */}
-              <div className="timeline-dot" />
+              <div className="timeline-dot" aria-hidden="true" />
 
               {/* Card */}
               <div
@@ -89,8 +89,9 @@ export default function Education() {
                     marginBottom: "1rem",
                   }}
                 >
-                  <Calendar size={12} style={{ color: "#4facfe" }} />
-                  <span
+                  <Calendar size={12} style={{ color: "#4facfe" }} aria-hidden="true" />
+                  <time
+                    dateTime={`${item.startDate}/${item.endDate}`}
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.75rem",
@@ -99,7 +100,7 @@ export default function Education() {
                     }}
                   >
                     {item.year}
-                  </span>
+                  </time>
                 </div>
 
                 {/* Degree */}
@@ -118,6 +119,7 @@ export default function Education() {
                       marginTop: "0.125rem",
                       flexShrink: 0,
                     }}
+                    aria-hidden="true"
                   />
                   <h3
                     style={{
@@ -157,7 +159,7 @@ export default function Education() {
                   </p>
                 )}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -14,7 +14,7 @@ const cardVariants = {
 
 export default function Certifications() {
   return (
-    <SectionWrapper id="certifications">
+    <SectionWrapper id="certifications" aria-label="Professional Credentials & Certifications">
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
         <motion.p
@@ -55,100 +55,107 @@ export default function Certifications() {
         }}
       >
         {certifications.map((cert) => (
-          <motion.a
+          <motion.article
             key={cert.name}
-            href={cert.verifyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-card"
             variants={cardVariants}
-            whileHover={{
-              borderColor: "rgba(255, 117, 140, 0.3)",
-              boxShadow:
-                "0 0 30px rgba(255, 117, 140, 0.06), 0 8px 32px rgba(0,0,0,0.3)",
-              y: -3,
-            }}
-            style={{
-              padding: "1.5rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.875rem",
-              textDecoration: "none",
-              cursor: "pointer",
-            }}
           >
-            {/* Icon & External Link */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+            <motion.a
+              href={cert.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card"
+              whileHover={{
+                borderColor: "rgba(255, 117, 140, 0.3)",
+                boxShadow:
+                  "0 0 30px rgba(255, 117, 140, 0.06), 0 8px 32px rgba(0,0,0,0.3)",
+                y: -3,
               }}
+              style={{
+                padding: "1.5rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.875rem",
+                textDecoration: "none",
+                cursor: "pointer",
+                height: "100%",
+              }}
+              aria-label={`Verify ${cert.name} issued by ${cert.issuer} in a new tab`}
             >
+              {/* Icon & External Link */}
               <div
                 style={{
-                  width: "2.5rem",
-                  height: "2.5rem",
-                  borderRadius: "0.625rem",
-                  background: "rgba(255, 117, 140, 0.08)",
-                  border: "1px solid rgba(255, 117, 140, 0.15)",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                 }}
               >
-                <Award size={18} style={{ color: "#ff758c" }} />
+                <div
+                  style={{
+                    width: "2.5rem",
+                    height: "2.5rem",
+                    borderRadius: "0.625rem",
+                    background: "rgba(255, 117, 140, 0.08)",
+                    border: "1px solid rgba(255, 117, 140, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  aria-hidden="true"
+                >
+                  <Award size={18} style={{ color: "#ff758c" }} />
+                </div>
+                <ExternalLink
+                  size={14}
+                  style={{ color: "var(--text-muted)" }}
+                  aria-hidden="true"
+                />
               </div>
-              <ExternalLink
-                size={14}
-                style={{ color: "var(--text-muted)" }}
-              />
-            </div>
 
-            {/* Cert Name */}
-            <h3
-              style={{
-                fontSize: "1rem",
-                fontWeight: 600,
-                color: "var(--text-primary)",
-                lineHeight: 1.4,
-              }}
-            >
-              {cert.name}
-            </h3>
-
-            {/* Issuer & Date */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginTop: "auto",
-              }}
-            >
-              <span
+              {/* Cert Name */}
+              <h3
                 style={{
-                  color: "var(--text-secondary)",
-                  fontSize: "0.8125rem",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "var(--text-primary)",
+                  lineHeight: 1.4,
                 }}
               >
-                {cert.issuer}
-              </span>
-              <span
+                {cert.name}
+              </h3>
+
+              {/* Issuer & Date */}
+              <div
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   alignItems: "center",
-                  gap: "0.25rem",
-                  color: "var(--text-muted)",
-                  fontSize: "0.75rem",
-                  fontFamily: "var(--font-mono)",
+                  justifyContent: "space-between",
+                  marginTop: "auto",
                 }}
               >
-                <Calendar size={11} />
-                {cert.date}
-              </span>
-            </div>
-          </motion.a>
+                <span
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: "0.8125rem",
+                  }}
+                >
+                  {cert.issuer}
+                </span>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
+                    color: "var(--text-muted)",
+                    fontSize: "0.75rem",
+                    fontFamily: "var(--font-mono)",
+                  }}
+                >
+                  <Calendar size={11} aria-hidden="true" />
+                  <time dateTime={cert.date}>{cert.date}</time>
+                </span>
+              </div>
+            </motion.a>
+          </motion.article>
         ))}
       </div>
     </SectionWrapper>
