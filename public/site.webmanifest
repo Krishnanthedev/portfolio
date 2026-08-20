@@ -1,16 +1,16 @@
 {
-  "name": "Krishna M — Full-Stack Developer & AI Engineer",
+  "name": "Krishna M —  Software Developer & AI Engineer",
   "short_name": "Krishna M",
-  "description": "Portfolio of Krishna M — Full-Stack Developer and AI Engineer specializing in modern web technologies, 3D experiences, and cloud architecture.",
+  "description": "Portfolio of Krishna M — Software Developer and AI Engineer specializing in modern web technologies, 3D experiences, and cloud architecture.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0f19",
   "theme_color": "#00f2fe",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/siteimage.jpg",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ]

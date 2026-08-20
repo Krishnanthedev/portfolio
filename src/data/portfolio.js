@@ -2,6 +2,15 @@
 // Update the content below with your real information.
 // All components read from this single file.
 
+export const siteConfig = {
+  siteUrl: "https://krishnam.dev",
+  siteName: "Krishna | Engineer & explorer",
+  defaultTitle: "Krishna | Engineer & explorer",
+  description:
+    "Portfolio of Krishna M — Full-Stack Developer and AI Engineer specializing in React, Node.js, Next.js, Three.js, and scalable cloud architectures.",
+  ogImage: "/siteimage.jpg",
+};
+
 export const personalInfo = {
   name: "Krishna M",
   title: "Software Engineer",
@@ -24,11 +33,11 @@ export const personalInfo = {
 };
 
 export const socialLinks = {
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
-  x: "https://x.com",
-  leetcode: "https://leetcode.com",
-  medium: "https://medium.com",
+  github: "https://github.com/Krishnanthedev",
+  linkedin: "https://linkedin.com/in/krishnanthedev/",
+  x: "https://x.com/Shreekrishna83",
+  leetcode: "https://leetcode.com/u/Bk6PSpdc7H/",
+  devCommunity: "https://dev.to/krishnatechie01",
 };
 
 export const skills = [
@@ -59,6 +68,8 @@ export const projects = [
     description:
       "A real-time cloud infrastructure monitoring dashboard with interactive charts, alert management, and multi-tenant support.",
     tags: ["React", "Node.js", "WebSocket", "D3.js", "PostgreSQL"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop",
+    imageAlt: "CloudSync Dashboard — real-time cloud monitoring interface",
     demoUrl: "https://example.com",
     repoUrl: "https://github.com",
   },
@@ -67,6 +78,8 @@ export const projects = [
     description:
       "An AI-powered content generation platform with a rich text editor, GPT integration, SEO analysis, and team collaboration features.",
     tags: ["Next.js", "OpenAI", "Prisma", "Tailwind", "Stripe"],
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=340&fit=crop",
+    imageAlt: "AI Content Studio — AI-powered content generation platform",
     demoUrl: "https://example.com",
     repoUrl: "https://github.com",
   },
@@ -75,6 +88,8 @@ export const projects = [
     description:
       "A developer productivity suite featuring code snippet management, project time tracking, and GitHub integration with analytics.",
     tags: ["TypeScript", "React", "Express", "MongoDB", "OAuth"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=340&fit=crop",
+    imageAlt: "DevFlow — developer productivity suite dashboard",
     demoUrl: "https://example.com",
     repoUrl: "https://github.com",
   },
@@ -83,6 +98,8 @@ export const projects = [
     description:
       "A cross-platform mobile app for carbon footprint tracking with gamification, social challenges, and environmental impact reports.",
     tags: ["React Native", "Firebase", "Charts", "Notifications"],
+    image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&h=340&fit=crop",
+    imageAlt: "EcoTrack Mobile — carbon footprint tracking app",
     demoUrl: "https://example.com",
     repoUrl: "https://github.com",
   },

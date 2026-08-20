@@ -5,7 +5,6 @@ import {
   Code,
   FolderGit2,
   Code2,
-  BookOpen,
 } from "lucide-react";
 
 // Custom GitHub icon (lucide-react removed it)
@@ -75,6 +74,31 @@ function XIcon({ size = 24, strokeWidth = 2, ...props }) {
     </svg>
   );
 }
+
+// Custom DEV Community icon
+function DevIcon({ size = 24, strokeWidth = 2, ...props }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <rect width="20" height="16" x="2" y="4" rx="3" />
+      <path d="M6 9h1.5a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 7.5 15H6V9z" />
+      <path d="M12 9h2M12 12h1.5M12 15h2" />
+      <path d="M16.5 9l1.5 6 1.5-6" />
+    </svg>
+  );
+}
+
 import { socialLinks } from "../data/portfolio";
 
 const navItems = [
@@ -122,10 +146,10 @@ const navItems = [
     type: "external",
   },
   {
-    id: "medium",
-    icon: BookOpen,
-    label: "Medium",
-    href: socialLinks.medium,
+    id: "dev",
+    icon: DevIcon,
+    label: "DEV Community",
+    href: socialLinks.devCommunity || socialLinks.dev || socialLinks.Dev,
     type: "external",
   },
 ];

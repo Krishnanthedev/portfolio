@@ -71,6 +71,30 @@ function XIcon({ size = 24, ...props }) {
   );
 }
 
+// Custom DEV Community icon
+function DevIcon({ size = 24, ...props }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <rect width="20" height="16" x="2" y="4" rx="3" />
+      <path d="M6 9h1.5a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 7.5 15H6V9z" />
+      <path d="M12 9h2M12 12h1.5M12 15h2" />
+      <path d="M16.5 9l1.5 6 1.5-6" />
+    </svg>
+  );
+}
+
 const itemVariants = {
   hidden: { opacity: 0, y: 25 },
   visible: {
@@ -113,6 +137,11 @@ const socials = [
   { icon: GithubIcon, href: socialLinks.github, label: "GitHub" },
   { icon: LinkedInIcon, href: socialLinks.linkedin, label: "LinkedIn" },
   { icon: XIcon, href: socialLinks.x, label: "X / Twitter" },
+  {
+    icon: DevIcon,
+    href: socialLinks.devCommunity || socialLinks.dev || socialLinks.Dev,
+    label: "DEV Community",
+  },
 ];
 
 export default function Contact() {
