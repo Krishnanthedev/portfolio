@@ -36,7 +36,7 @@ export const socialLinks = {
   github: "https://github.com/Krishnanthedev",
   linkedin: "https://linkedin.com/in/krishnanthedev/",
   x: "https://x.com/Shreekrishna83",
-  leetcode: "https://leetcode.com/u/Bk6PSpdc7H/",
+  leetcode: "https://leetcode.com/u/Krishnanthedev/",
   devCommunity: "https://dev.to/krishnatechie01",
 };
 

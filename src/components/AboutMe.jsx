@@ -15,7 +15,7 @@ const itemVariants = {
 const stats = [
   { icon: Briefcase, value: "10+", label: "Projects Completed" },
   { icon: Coffee, value: "∞", label: "Cups of Coffee" },
-  { icon: Lightbulb, value: "5+", label: "Years Experience" },
+  { icon: Lightbulb, value: "0+", label: "Years Experience" },
 ];
 
 export default function AboutMe() {
